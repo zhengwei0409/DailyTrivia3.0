@@ -29,6 +29,6 @@ create table UserAccount (
 	last_checkin_date date  
 );  
   
-And remember to change the username to your database username as well as the password  
+** And remember to change the username to your database username as well as the password in ConnectDatabase class    
 Arhhh this section ruined my Christmas Holiday !!!
 
