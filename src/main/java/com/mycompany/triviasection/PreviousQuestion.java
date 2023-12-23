@@ -76,13 +76,36 @@ public class PreviousQuestion {
         boolean hasUnansweredQuestion = false;
         
         // check for unanswer question
-        // case 1 : if user didn't answer any question previously
-        if(database.getQuestionAnswered() == null) {
+        // case 1: if the days > 10 
+        if(currentQuestionIndex > 10) {
+            
+            int[] answeredQuestion = new int[10];
+ 
+            for(int i = 0; i < questionAnsweredInt.length; i++) {
+                int questionNumber = questionAnsweredInt[i];
+                answeredQuestion[questionNumber]++;
+            }
+            
+            // display the unanswer question
+            for(int i = 0; i < answeredQuestion.length; i++) {
+                if(answeredQuestion[i] == 0) {
+                    tr.playTrivia(i);
+                    hasUnansweredQuestion = true;
+                }
+            }
+            
+            // handle the case when there are no unanswered questions
+            if (!hasUnansweredQuestion) {
+            System.out.println("All questions are answered.");
+            }
+        }
+        // case 2 : if user didn't answer any question previously
+        else if(database.getQuestionAnswered() == null) {
             for(int i = 0; i < currentQuestionIndex;i++) {
                 tr.playTrivia(i);
             }
         }
-        // case 2 : if user already answer today's question
+        // case 3 : if user already answer today's question
         else if(questionAnsweredInt[questionAnsweredInt.length-1] == (currentQuestionIndex)) {
            
             int[] answeredQuestion = new int[currentQuestionIndex+1];
@@ -107,7 +130,7 @@ public class PreviousQuestion {
             
         } 
         
-        // case 3 : if user did not answer today's question yet
+        // case 4 : if user did not answer today's question yet
         else {
             int[] answeredQuestion = new int[currentQuestionIndex];
  

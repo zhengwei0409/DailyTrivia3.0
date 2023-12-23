@@ -120,9 +120,16 @@ public class TriviaSection {
         int currentQuestionIndex = (int) ChronoUnit.DAYS.between(registrationDate, currentDate);
         int i = currentQuestionIndex;
         
+        // handle the case where the numbers of days is exceed 10 days
+        if(i > 10) {
+            System.out.println("There are no trivia for you anymore ~ ");
+            return;
+        }
+        
+        
         // check for whether this question already being answered 
         if(alreadyAnswer(currentQuestionIndex)) {
-            System.out.println("You have done today's question");
+            System.out.println("You have done today's question!");
             return;
         }
         
@@ -450,6 +457,12 @@ public class TriviaSection {
         // compute the different in days
         int currentQuestionIndex = (int) ChronoUnit.DAYS.between(registrationDate, currentDate);
         int i = currentQuestionIndex;
+        
+        // handle the case where the numbers of days is exceed 10 days
+        if(i > 10) {
+            System.out.println("There are no trivia for you anymore ~ ");
+            return;
+        }
         
         // getting the question
         String question = questions[i];

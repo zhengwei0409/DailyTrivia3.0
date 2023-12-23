@@ -11,13 +11,13 @@ public class ConnectDatabase {
     private LocalDate lastCheckInDate;
     private int current_point;
     private String question_answered;
-    private int userId = 1;
+    private int userId = 2;
     
     // constructor that connect to database and execute query
     public ConnectDatabase() {
-        String jdbcUrl = "jdbc:mysql://localhost:3306/replace_your_database_name_here";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/your_database_name";
         String username = "root";
-        String password = "replace_your_database_password_here";
+        String password = "your_database_password";
 
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
@@ -63,9 +63,9 @@ public class ConnectDatabase {
     
     // method use for update the point
     public void updateCurrentPoint(int newPoint) {
-        String jdbcUrl = "jdbc:mysql://localhost:3306/replace_your_database_name_here";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/your_database_name";
         String username = "root";
-        String password = "replace_your_database_password_here";
+        String password = "your_database_password";
 
         try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
 
@@ -90,9 +90,9 @@ public class ConnectDatabase {
     
     // method use for update the question answered
     public void updateQuestionAnswered(String questionAnswered) {
-        String jdbcUrl = "jdbc:mysql://localhost:3306/replace_your_database_name_here";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/your_database_name";
         String username = "root";
-        String password = "replace_your_database_password_here";
+        String password = "your_database_password";
 
         try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
 
@@ -117,9 +117,9 @@ public class ConnectDatabase {
     
     // method use for update the check in date
     public void updateCheckInDate(LocalDate lastCheckInDate) {
-        String jdbcUrl = "jdbc:mysql://localhost:3306/replace_your_database_name_here";
+        String jdbcUrl = "jdbc:mysql://localhost:3306/your_database_name";
         String username = "root";
-        String password = "replace_your_database_password_here";
+        String password = "your_database_password";
 
         try (Connection connection = DriverManager.getConnection(jdbcUrl, username, password)) {
 
